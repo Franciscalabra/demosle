@@ -1,166 +1,83 @@
-/* Agregar estos estilos a main.css o index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Animación para el spinner de carga */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply antialiased;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Selection Colors */
+  ::selection {
+    @apply bg-purple-600 text-white;
+  }
+  
+  /* Focus Styles */
+  *:focus {
+    @apply outline-none;
+  }
+  
+  /* Remove input background on autofill */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1a1a1a inset !important;
+    -webkit-text-fill-color: #ffffff !important;
   }
 }
 
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-/* Estilos adicionales para el formulario mejorado */
-.contact-form input:disabled,
-.contact-form select:disabled,
-.contact-form textarea:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.contact-form button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.contact-form button:disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-/* Loader Icon Component (si Lucide no tiene Loader2) */
-/* Puedes crear un componente simple o usar el Loader de Lucide */
-
-/* Alternativa: Si Loader2 no existe en lucide-react, usa esto: */
-/* 
-En el componente Contacto.jsx, cambia:
-import { ..., Loader2 } from 'lucide-react';
-
-Por:
-import { ..., Loader } from 'lucide-react';
-
-Y en el botón de envío:
-<Loader size={18} className="animate-spin" />
-*/
-
-/* Estilos para mejorar la accesibilidad */
-.contact-form input:focus-visible,
-.contact-form select:focus-visible,
-.contact-form textarea:focus-visible {
-  outline: 3px solid var(--purple);
-  outline-offset: 2px;
-}
-
-/* Mejoras para el botón de WhatsApp */
-.whatsapp-button {
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.whatsapp-button:active {
-  transform: scale(0.95);
-}
-
-/* Estilo para los beneficios en el card morado */
-.purple-card .benefits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.purple-card .benefits-list li {
-  padding: 0.75rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.6;
-}
-
-.purple-card .benefits-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--yellow);
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-/* Métodos de contacto mejorados */
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.contact-method {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.contact-method svg {
-  color: var(--purple);
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
-.contact-method p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.contact-method .font-semibold {
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 0.25rem;
-}
-
-.contact-method a {
-  color: var(--purple);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.contact-method a:hover {
-  text-decoration: underline;
-}
-
-/* Animación suave para mensajes de éxito/error */
-.submit-message {
-  animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
+/* Custom Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
     transform: translateY(-10px);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
-/* Responsive improvements */
-@media (max-width: 768px) {
-  .contact-methods {
-    gap: 1rem;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7e22ce;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
   
-  .contact-method {
-    flex-wrap: wrap;
-  }
-  
-  .purple-card .benefits-list li {
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
+  .bg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
