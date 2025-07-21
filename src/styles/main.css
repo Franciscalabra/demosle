@@ -1,0 +1,166 @@
+/* Agregar estos estilos a main.css o index.css */
+
+/* Animación para el spinner de carga */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Estilos adicionales para el formulario mejorado */
+.contact-form input:disabled,
+.contact-form select:disabled,
+.contact-form textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact-form button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loader Icon Component (si Lucide no tiene Loader2) */
+/* Puedes crear un componente simple o usar el Loader de Lucide */
+
+/* Alternativa: Si Loader2 no existe en lucide-react, usa esto: */
+/* 
+En el componente Contacto.jsx, cambia:
+import { ..., Loader2 } from 'lucide-react';
+
+Por:
+import { ..., Loader } from 'lucide-react';
+
+Y en el botón de envío:
+<Loader size={18} className="animate-spin" />
+*/
+
+/* Estilos para mejorar la accesibilidad */
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* Mejoras para el botón de WhatsApp */
+.whatsapp-button {
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.whatsapp-button:active {
+  transform: scale(0.95);
+}
+
+/* Estilo para los beneficios en el card morado */
+.purple-card .benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.purple-card .benefits-list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.purple-card .benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Métodos de contacto mejorados */
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-method {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.contact-method svg {
+  color: var(--purple);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.contact-method p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.contact-method .font-semibold {
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.25rem;
+}
+
+.contact-method a {
+  color: var(--purple);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-method a:hover {
+  text-decoration: underline;
+}
+
+/* Animación suave para mensajes de éxito/error */
+.submit-message {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .contact-methods {
+    gap: 1rem;
+  }
+  
+  .contact-method {
+    flex-wrap: wrap;
+  }
+  
+  .purple-card .benefits-list li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+}
