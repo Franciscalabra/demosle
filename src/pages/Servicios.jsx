@@ -282,7 +282,7 @@ const Servicios = () => {
             <h2>¿No sabes qué servicio necesitas?</h2>
             <p>Conversemos 5 minutos y te orientamos sin compromiso</p>
             <a
-              href="https://wa.me/56942740261"
+              href="https://wa.me/56932252978"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-white"

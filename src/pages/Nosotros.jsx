@@ -17,7 +17,7 @@ const Nosotros = () => {
         <div className="container">
           <div className="about-grid">
             <div className="about-content">
-              <h2>Marketing digital sin chamuyo</h2>
+              <h2>Marketing digital sin verso</h2>
               <p className="lead">
                 Nacimos cansados de ver negocios buenos fracasar por mal marketing. De escuchar 
                 promesas vacías de "influencers" improvisados. De presupuestos inflados sin resultados claros.
@@ -28,7 +28,7 @@ const Nosotros = () => {
                 de un equipo apasionado.
               </p>
               <p>
-                No somos gurúes ni vendemos humo. Somos profesionales digitales obsesionados 
+                No somos gurúes ni vendemos la pomada. Somos profesionales digitales obsesionados 
                 con hacer crecer tu negocio.
               </p>
             </div>
@@ -50,7 +50,7 @@ const Nosotros = () => {
             <div className="value-card">
               <Target size={40} />
               <h3>Estrategia primero</h3>
-              <p>Cada acción tiene un porqué. Analizamos, planificamos y después ejecutamos. Nada al azar.</p>
+              <p>Cada acción tiene un porqué. Analizamos, planificamos y después ejecutamos. Nada al lulo.</p>
             </div>
             
             <div className="value-card">
@@ -61,8 +61,8 @@ const Nosotros = () => {
             
             <div className="value-card">
               <Palette size={40} />
-              <h3>Data-driven creativity</h3>
-              <p>Creatividad salvaje domada por datos. Cada decisión respaldada por métricas reales.</p>
+              <h3>Creatividad con datos</h3>
+              <p>Creatividad bacán respaldada por datos duros. Cada decisión con métricas reales.</p>
             </div>
             
             <div className="value-card">
@@ -80,7 +80,7 @@ const Nosotros = () => {
           <div className="team-content">
             <h2>El equipo que hace <span className="highlight-yellow">la diferencia</span></h2>
             <p className="team-intro">
-              Formamos un equipo que rompe moldes. Profesionales que piensan, creativos que venden, estrategas que ejecutan.
+              Formamos un equipo que la lleva. Profesionales que piensan, creativos que venden, estrategas que ejecutan.
             </p>
             
             <div className="founder-quote">
@@ -92,7 +92,7 @@ const Nosotros = () => {
                 pero te lleven al siguiente nivel. En medir todo, optimizar siempre, y celebrar cada venta como 
                 si fuera la primera.
                 <br/><br/>
-                Formé un equipo que comparte esta visión: profesionales que piensan, creativos que venden, 
+                Formé un equipo que comparte esta visión: profesionales que cachán, creativos que venden, 
                 estrategas que ejecutan."
               </blockquote>
               <cite>— Fran, CEO y Fundadora</cite>
@@ -117,7 +117,7 @@ const Nosotros = () => {
       {/* Process Philosophy */}
       <section className="philosophy-section">
         <div className="container">
-          <h2>Nuestra forma de <span className="highlight">trabajar</span></h2>
+          <h2>Nuestros principios</h2>
           
           <div className="philosophy-grid">
             <div className="philosophy-item">
@@ -147,11 +147,11 @@ const Nosotros = () => {
       <section className="cta-section yellow-bg">
         <div className="container">
           <div className="cta-content">
-            <h2>¿Te gusta nuestra forma de pensar?</h2>
+            <h2>¿Te tinca nuestra forma de pensar?</h2>
             <p>Trabajemos juntos. Hagamos crecer tu negocio con ideas que funcionan.</p>
             <div className="cta-buttons">
               <a
-                href="https://wa.me/56942740261"
+                href="https://wa.me/56932252978"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-black"

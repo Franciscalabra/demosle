@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, Phone, Clock, Send, MapPin, Loader2 } from 'lucide-react';
-import { sendEmail, validateForm, formatWhatsAppNumber } from '../utils/emailService';
+import { MessageCircle, Mail, Phone, Clock, Send, MapPin } from 'lucide-react';
+import { sendEmail, validateForm } from '../utils/emailService';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -16,40 +16,29 @@ const Contacto = () => {
   const [submitMessage, setSubmitMessage] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    
-    // Formatear número de WhatsApp mientras escribe
-    if (name === 'whatsapp') {
-      // Permitir solo números y algunos caracteres de formato
-      const cleanValue = value.replace(/[^\d\+\-\(\)\s]/g, '');
-      setFormData({ ...formData, [name]: cleanValue });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-    
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
     // Limpiar error del campo cuando el usuario empieza a escribir
-    if (formErrors[name]) {
-      setFormErrors({ ...formErrors, [name]: '' });
+    if (formErrors[e.target.name]) {
+      setFormErrors({
+        ...formErrors,
+        [e.target.name]: ''
+      });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Limpiar mensajes anteriores
-    setSubmitMessage(null);
     setIsSubmitting(true);
+    setSubmitMessage(null);
     
     // Validar formulario
     const errors = validateForm(formData);
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       setIsSubmitting(false);
-      // Scroll al primer error
-      const firstError = document.querySelector('.error');
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
       return;
     }
     
@@ -57,12 +46,7 @@ const Contacto = () => {
     const result = await sendEmail(formData);
     
     if (result.success) {
-      setSubmitMessage({ 
-        type: 'success', 
-        text: result.message 
-      });
-      
-      // Limpiar formulario
+      setSubmitMessage({ type: 'success', text: '¡Mensaje enviado! 🎉 Te contactaremos pronto.' });
       setFormData({
         nombre: '',
         email: '',
@@ -71,32 +55,11 @@ const Contacto = () => {
         mensaje: ''
       });
       setFormErrors({});
-      
-      // Scroll al mensaje de éxito
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      // Track conversión si tienes Google Analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', {
-          'event_category': 'engagement',
-          'event_label': formData.servicio
-        });
-      }
     } else {
-      setSubmitMessage({ 
-        type: 'error', 
-        text: result.message 
-      });
+      setSubmitMessage({ type: 'error', text: '¡Chuta! Algo salió mal. Intenta de nuevo o escríbenos al WhatsApp 🤔' });
     }
     
     setIsSubmitting(false);
-  };
-
-  // WhatsApp directo con mensaje predefinido
-  const handleWhatsAppClick = () => {
-    const message = `Hola! Vi su sitio web y me gustaría información sobre sus servicios.`;
-    const whatsappUrl = `https://wa.me/56942740261?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -105,7 +68,7 @@ const Contacto = () => {
       <section className="page-hero">
         <div className="container">
           <h1>Hablemos de hacer <span className="highlight">crecer tu negocio</span></h1>
-          <p>Sin compromiso, sin chamuyo. Solo una charla honesta sobre tu potencial digital.</p>
+          <p>Sin compromiso, sin chamullo. Solo una conversación honesta sobre tu potencial digital.</p>
         </div>
       </section>
 
@@ -115,13 +78,13 @@ const Contacto = () => {
           <div className="contact-grid">
             {/* Contact Form */}
             <div className="contact-form-wrapper">
-              <h2>Contanos tu desafío</h2>
+              <h2>Cuéntanos tu desafío</h2>
               <p className="form-intro">
-                Completá el form o escribinos directo al WhatsApp. Lo que te sea más cómodo. 
+                Completa el formulario o escríbenos directo al WhatsApp. Lo que te sea más cómodo. 
                 Respondemos en menos de 24hs (en general, mucho menos 😉).
               </p>
               
-              <form onSubmit={handleSubmit} className="contact-form" noValidate>
+              <form onSubmit={handleSubmit} className="contact-form">
                 {submitMessage && (
                   <div className={`submit-message ${submitMessage.type}`}>
                     {submitMessage.text}
@@ -133,12 +96,11 @@ const Contacto = () => {
                     <input
                       type="text"
                       name="nombre"
-                      placeholder="Tu nombre *"
+                      placeholder="Tu nombre"
                       value={formData.nombre}
                       onChange={handleChange}
                       required
                       className={formErrors.nombre ? 'error' : ''}
-                      disabled={isSubmitting}
                     />
                     {formErrors.nombre && <span className="error-text">{formErrors.nombre}</span>}
                   </div>
@@ -146,12 +108,11 @@ const Contacto = () => {
                     <input
                       type="email"
                       name="email"
-                      placeholder="tu@email.com *"
+                      placeholder="tu@email.com"
                       value={formData.email}
                       onChange={handleChange}
                       required
                       className={formErrors.email ? 'error' : ''}
-                      disabled={isSubmitting}
                     />
                     {formErrors.email && <span className="error-text">{formErrors.email}</span>}
                   </div>
@@ -162,12 +123,11 @@ const Contacto = () => {
                     <input
                       type="tel"
                       name="whatsapp"
-                      placeholder="WhatsApp (9 1234 5678) *"
+                      placeholder="WhatsApp"
                       value={formData.whatsapp}
                       onChange={handleChange}
                       required
                       className={formErrors.whatsapp ? 'error' : ''}
-                      disabled={isSubmitting}
                     />
                     {formErrors.whatsapp && <span className="error-text">{formErrors.whatsapp}</span>}
                   </div>
@@ -178,14 +138,13 @@ const Contacto = () => {
                       onChange={handleChange}
                       required
                       className={formErrors.servicio ? 'error' : ''}
-                      disabled={isSubmitting}
                     >
-                      <option value="">Servicio de interés *</option>
-                      <option value="Community Manager">Community Manager</option>
-                      <option value="Página Web">Página Web</option>
-                      <option value="Estrategia Creativa">Estrategia Creativa</option>
-                      <option value="Combo de servicios">Combo de servicios</option>
-                      <option value="No estoy seguro">No estoy seguro</option>
+                      <option value="">Servicio de interés</option>
+                      <option value="community">Community Manager</option>
+                      <option value="web">Página Web</option>
+                      <option value="estrategia">Estrategia Creativa</option>
+                      <option value="combo">Combo de servicios</option>
+                      <option value="otro">No estoy seguro</option>
                     </select>
                     {formErrors.servicio && <span className="error-text">{formErrors.servicio}</span>}
                   </div>
@@ -194,13 +153,12 @@ const Contacto = () => {
                 <div className="form-group">
                   <textarea
                     name="mensaje"
-                    placeholder="Contanos sobre tu proyecto... *"
+                    placeholder="Cuéntanos sobre tu proyecto..."
                     rows="6"
                     value={formData.mensaje}
                     onChange={handleChange}
                     required
                     className={formErrors.mensaje ? 'error' : ''}
-                    disabled={isSubmitting}
                   ></textarea>
                   {formErrors.mensaje && <span className="error-text">{formErrors.mensaje}</span>}
                 </div>
@@ -210,12 +168,7 @@ const Contacto = () => {
                   className="btn btn-primary btn-block"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={18} className="animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
+                  {isSubmitting ? 'Enviando...' : (
                     <>
                       Enviar mensaje
                       <Send size={18} />
@@ -228,60 +181,67 @@ const Contacto = () => {
             {/* Contact Info */}
             <div className="contact-info">
               <div className="info-card">
-                <h3>Preferís WhatsApp? Dale! 💬</h3>
-                <p>Para respuestas rápidas y consultas urgentes. Estamos online de Lun-Vie 9-19hs.</p>
-                <button 
-                  onClick={handleWhatsAppClick}
+                <h3>Contacto Inmediato 💬</h3>
+                <p>Para respuestas rápidas y consultas urgentes.</p>
+                
+                <div className="contact-methods">
+                  <div className="contact-method">
+                    <Mail size={24} />
+                    <div>
+                      <p className="contact-label">Email</p>
+                      <a href="mailto:hola@demosle.cl" className="contact-link">
+                        hola@demosle.cl
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="contact-method">
+                    <Phone size={24} />
+                    <div>
+                      <p className="contact-label">Teléfono</p>
+                      <a href="tel:+56942740261" className="contact-link">
+                        +569 4274 0261
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="contact-method">
+                    <MapPin size={24} />
+                    <div>
+                      <p className="contact-label">Ubicación</p>
+                      <p className="contact-text">Santiago, Chile</p>
+                    </div>
+                  </div>
+                  
+                  <div className="contact-method">
+                    <Clock size={24} />
+                    <div>
+                      <p className="contact-label">Horario</p>
+                      <p className="contact-text">Lun-Vie 9-19hs</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <a 
+                  href="https://wa.me/56932252978" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="whatsapp-button"
                 >
                   <MessageCircle size={20} />
-                  +569 4274 0261
-                </button>
+                  WhatsApp Directo
+                </a>
               </div>
 
               <div className="info-card purple-card">
                 <h3>Por qué elegirnos 🚀</h3>
                 <ul className="benefits-list">
-                  <li>Sin contratos forzosos - Mes a mes, seguís si ves resultados</li>
-                  <li>Reuniones que valen la pena - Directo al grano, sin perder tiempo</li>
-                  <li>Reportes que entendés - Métricas claras, sin palabrerío técnico</li>
-                  <li>Equipo senior - Trabajás con profesionales, no pasantes</li>
-                  <li>Resultados garantizados - Si no funciona, pivotamos hasta que funcione</li>
+                  <li><strong>Sin contratos amarrados</strong> - Mes a mes, sigues si ves resultados</li>
+                  <li><strong>Reuniones que valen la pena</strong> - Al grano, sin perder tiempo</li>
+                  <li><strong>Reportes que entiendes</strong> - Métricas claras, sin palabrería técnica</li>
+                  <li><strong>Equipo senior</strong> - Trabajas con profesionales, no con practicantes</li>
+                  <li><strong>Resultados garantizados</strong> - Si no funciona, cambiamos de estrategia hasta que funcione</li>
                 </ul>
-              </div>
-
-              <div className="info-card">
-                <h3>Información de contacto</h3>
-                <div className="contact-methods">
-                  <div className="contact-method">
-                    <Mail size={20} />
-                    <div>
-                      <p className="font-semibold">Email</p>
-                      <a href="mailto:hola@demosle.cl">hola@demosle.cl</a>
-                    </div>
-                  </div>
-                  <div className="contact-method">
-                    <Phone size={20} />
-                    <div>
-                      <p className="font-semibold">Teléfono</p>
-                      <a href="tel:+56942740261">+569 4274 0261</a>
-                    </div>
-                  </div>
-                  <div className="contact-method">
-                    <MapPin size={20} />
-                    <div>
-                      <p className="font-semibold">Ubicación</p>
-                      <p>Santiago, Chile</p>
-                    </div>
-                  </div>
-                  <div className="contact-method">
-                    <Clock size={20} />
-                    <div>
-                      <p className="font-semibold">Horario</p>
-                      <p>Lun-Vie 9:00 - 19:00</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -301,8 +261,8 @@ const Contacto = () => {
             </div>
             
             <div className="faq-item">
-              <h3>¿Trabajan con negocios chicos?</h3>
-              <p>Nuestro cliente ideal factura entre 100k y 10M al mes. Si estás abajo de eso, 
+              <h3>¿Trabajan con negocios pequeños?</h3>
+              <p>Nuestro cliente ideal factura entre 100 mil y 10 millones al mes. Si estás bajo eso, 
               tenemos planes starter. Si estás arriba, tenemos equipo senior dedicado.</p>
             </div>
             
@@ -314,20 +274,8 @@ const Contacto = () => {
             
             <div className="faq-item">
               <h3>¿Puedo cancelar cuando quiera?</h3>
-              <p>Por supuesto. Sin letra chica, sin penalizaciones. Si no sumamos, 
+              <p>Por supuesto. Sin letra chica, sin multas. Si no sumamos, 
               mejor separarnos como amigos 🤝</p>
-            </div>
-            
-            <div className="faq-item">
-              <h3>¿Cómo funciona el proceso?</h3>
-              <p>1. Charla inicial gratis 2. Propuesta personalizada 3. Aprobación 
-              4. Kickoff meeting 5. Manos a la obra 6. Resultados y optimización continua</p>
-            </div>
-            
-            <div className="faq-item">
-              <h3>¿Incluyen capacitación?</h3>
-              <p>Sí! Te enseñamos a usar todas las herramientas. Queremos que entiendas 
-              lo que hacemos y por qué funciona. Transparencia total 🎯</p>
             </div>
           </div>
         </div>

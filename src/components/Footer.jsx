@@ -15,7 +15,7 @@ const Footer = () => {
               Ideas que conectan, marcas que venden.
             </p>
             <div className="social-links">
-              <a href="https://wa.me/56942740261" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/56932252978" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <MessageCircle size={20} />
               </a>
               <a href="https://instagram.com/demosle.cl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -48,12 +48,12 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Hablemos</h4>
             <p className="contact-info">
-              <Phone size={16} /> +569 4274 0261
+              <Phone size={16} /> +569 32252978
             </p>
             <p className="contact-info">
               <Mail size={16} /> hola@demosle.cl
             </p>
-            <a href="https://wa.me/56942740261" className="footer-cta">
+            <a href="https://wa.me/56932252978" className="footer-cta">
               <MessageCircle size={18} />
               Escríbenos ahora
             </a>

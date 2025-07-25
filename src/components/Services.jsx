@@ -1,230 +1,300 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Globe, Megaphone, Users, Search, Mail, BarChart, 
-  Palette, Code, Smartphone, ShoppingCart, Calendar, MessageCircle,
-  TrendingUp, Target, Award, Zap
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Users, Globe, Sparkles, Check, ArrowRight, MessageCircle, Target, Palette, PenTool, TrendingUp, Smartphone, Zap } from 'lucide-react';
 
-const Services = () => {
-  const mainServices = [
-    {
-      icon: <Globe className="w-12 h-12" />,
-      title: "Diseño Web Profesional",
-      description: "Páginas web modernas y optimizadas que convierten visitantes en clientes",
-      features: [
-        "Diseño responsivo y adaptable",
-        "Optimización SEO incluida",
-        "Velocidad de carga ultrarrápida",
-        "Integración con WordPress"
-      ],
-      color: "from-blue-500 to-cyan-500",
-      popular: false
+const Servicios = () => {
+  const [activeTab, setActiveTab] = useState('community');
+
+  const services = {
+    community: {
+      title: 'Community Manager',
+      icon: <Users size={40} />,
+      description: 'Gestión profesional de redes sociales con contenido que conecta y convierte.',
+      plans: [
+        {
+          name: 'Starter',
+          price: '$150.000',
+          features: [
+            '3 posts por semana',
+            '3 historias por semana',
+            '2 anuncios mensuales',
+            'Diseño gráfico incluido',
+            'Calendario de contenido',
+            'Reporte mensual básico',
+            'Respuesta a comentarios',
+            '1 red social'
+          ]
+        },
+        {
+          name: 'Professional',
+          price: '$250.000',
+          featured: true,
+          features: [
+            '5 posts por semana',
+            '5 historias por semana',
+            '4 anuncios mensuales',
+            'Diseño gráfico ilimitado',
+            'Calendario editorial',
+            'Reportes detallados',
+            'Gestión de mensajes',
+            '2 redes sociales',
+            'Stories destacadas',
+            'Campañas temáticas'
+          ]
+        },
+        {
+          name: 'Business',
+          price: '$450.000',
+          features: [
+            'Posts diarios',
+            'Stories diarias',
+            '8 anuncios mensuales',
+            'Diseño y video',
+            'Estrategia completa',
+            'Analytics avanzado',
+            'Community management 24/7',
+            '3+ redes sociales',
+            'Influencer marketing',
+            'Concursos y sorteos',
+            'Fotografía mensual'
+          ]
+        }
+      ]
     },
-    {
-      icon: <Megaphone className="w-12 h-12" />,
-      title: "Marketing Digital Integral",
-      description: "Estrategias completas para aumentar tu visibilidad y ventas online",
-      features: [
-        "Google Ads y Facebook Ads",
-        "Email Marketing automatizado",
-        "SEO y posicionamiento web",
-        "Analítica y reportes mensuales"
-      ],
-      color: "from-purple-500 to-pink-500",
-      popular: true
+    web: {
+      title: 'Páginas Web',
+      icon: <Globe size={40} />,
+      description: 'Sitios web modernos y optimizados que convierten visitantes en clientes.',
+      plans: [
+        {
+          name: 'Landing Page',
+          price: '$99.990',
+          features: [
+            'Diseño one-page',
+            'Mobile responsive',
+            'Formulario de contacto',
+            'Integración WhatsApp',
+            'Hosting gratis 1 año',
+            'Entrega en 3 días',
+            'SEO básico',
+            '2 revisiones incluidas'
+          ]
+        },
+        {
+          name: 'Web Profesional',
+          price: '$249.990',
+          featured: true,
+          features: [
+            'Hasta 5 páginas',
+            'Diseño personalizado',
+            'Blog integrado',
+            'Galería de productos',
+            'Chat en vivo',
+            'Google Analytics',
+            'SEO optimizado',
+            'Entrega en 7 días',
+            'Capacitación incluida',
+            'Mantenimiento 3 meses'
+          ]
+        },
+        {
+          name: 'E-commerce',
+          price: '$499.990',
+          features: [
+            'Tienda online completa',
+            'Catálogo ilimitado',
+            'Carrito de compras',
+            'Pagos integrados',
+            'Gestión de inventario',
+            'Cupones y descuentos',
+            'Multi-idioma',
+            'App móvil PWA',
+            'Marketing tools',
+            'Soporte prioritario',
+            'Capacitación completa'
+          ]
+        }
+      ]
     },
-    {
-      icon: <Users className="w-12 h-12" />,
-      title: "Community Manager",
-      description: "Gestión profesional de tus redes sociales para construir una comunidad activa",
-      features: [
-        "Contenido creativo diario",
-        "Gestión de Instagram y Facebook",
-        "Respuesta a comentarios y mensajes",
-        "Reportes de crecimiento"
-      ],
-      color: "from-pink-500 to-rose-500",
-      popular: false
+    estrategia: {
+      title: 'Estrategia Creativa',
+      icon: <Sparkles size={40} />,
+      description: 'Ideas estratégicas y creativas que hacen destacar tu marca.',
+      plans: [
+        {
+          name: 'Branding Básico',
+          price: '$199.990',
+          features: [
+            'Logo profesional',
+            '3 propuestas de diseño',
+            'Manual de marca básico',
+            'Paleta de colores',
+            'Tipografías',
+            'Aplicaciones básicas',
+            'Archivos editables'
+          ]
+        },
+        {
+          name: 'Identidad Completa',
+          price: '$399.990',
+          featured: true,
+          features: [
+            'Naming creativo',
+            'Logo + variaciones',
+            'Manual de marca completo',
+            'Diseño de papelería',
+            'Templates redes sociales',
+            'Guía de voz y tono',
+            'Estrategia de comunicación',
+            'Presentación de marca',
+            'Mockups profesionales'
+          ]
+        },
+        {
+          name: 'Consultoría Integral',
+          price: 'Personalizado',
+          features: [
+            'Auditoría de marca',
+            'Estrategia 360°',
+            'Plan de marketing',
+            'Customer journey',
+            'Campañas creativas',
+            'Dirección de arte',
+            'Producción audiovisual',
+            'Activaciones BTL',
+            'KPIs y métricas',
+            'Acompañamiento mensual'
+          ]
+        }
+      ]
     }
-  ];
+  };
 
-  const additionalServices = [
-    { icon: <Search />, name: "SEO Avanzado", description: "Posicionamiento en Google" },
-    { icon: <Mail />, name: "Email Marketing", description: "Campañas automatizadas" },
-    { icon: <BarChart />, name: "Analytics", description: "Métricas y reportes" },
-    { icon: <Palette />, name: "Branding", description: "Identidad visual completa" },
-    { icon: <ShoppingCart />, name: "E-commerce", description: "Tiendas online" },
-    { icon: <MessageCircle />, name: "Chatbots", description: "Atención 24/7" }
-  ];
+  const currentService = services[activeTab];
 
   return (
-    <section id="servicios" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <Zap className="w-4 h-4" />
-            Servicios que Impulsan tu Negocio
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Soluciones Digitales
-            <span className="block bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-              que Generan Resultados
-            </span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ofrecemos servicios integrales de marketing digital adaptados a las necesidades 
-            y presupuesto de tu empresa. Todo lo que necesitas para triunfar online.
-          </p>
-        </motion.div>
+    <>
+      {/* Hero Section */}
+      <section className="page-hero">
+        <div className="container">
+          <h1>Servicios que <span className="highlight">transforman</span> negocios</h1>
+          <p>Elige la solución que necesitas. Nosotros nos encargamos de que funcione.</p>
+        </div>
+      </section>
 
-        {/* Main Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {mainServices.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
+      {/* Service Tabs */}
+      <section className="service-tabs-section">
+        <div className="container">
+          <div className="service-tabs">
+            <button
+              className={`service-tab ${activeTab === 'community' ? 'active' : ''}`}
+              onClick={() => setActiveTab('community')}
             >
-              {service.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold z-10">
-                  Más Popular
-                </div>
-              )}
-              
-              <div className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-8 h-full ${
-                service.popular ? 'border-2 border-purple-200' : ''
-              }`}>
-                {/* Icon */}
-                <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center text-white mb-6`}>
-                  {service.icon}
-                </div>
+              <Users size={24} />
+              Community Manager
+            </button>
+            <button
+              className={`service-tab ${activeTab === 'web' ? 'active' : ''}`}
+              onClick={() => setActiveTab('web')}
+            >
+              <Globe size={24} />
+              Páginas Web
+            </button>
+            <button
+              className={`service-tab ${activeTab === 'estrategia' ? 'active' : ''}`}
+              onClick={() => setActiveTab('estrategia')}
+            >
+              <Sparkles size={24} />
+              Estrategia Creativa
+            </button>
+          </div>
+        </div>
+      </section>
 
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
+      {/* Pricing Section */}
+      <section className="pricing-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Precios simples, <span className="highlight-yellow">sin sorpresas</span></h2>
+            <p>Elige el servicio que necesitas. Sin letra chica, sin costos ocultos.</p>
+          </div>
 
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 bg-green-500 rounded-full" />
-                      </div>
-                      <span className="text-gray-700">{feature}</span>
+          <div className="pricing-grid">
+            {currentService.plans.map((plan, index) => (
+              <div key={index} className={`pricing-card ${plan.featured ? 'featured' : ''}`}>
+                {plan.featured && <div className="featured-badge">MÁS POPULAR</div>}
+                <h3>{plan.name}</h3>
+                <div className="price">
+                  {plan.price}
+                  {plan.price !== 'Personalizado' && <span>/mes</span>}
+                </div>
+                <ul className="features-list">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx}>
+                      <Check size={16} />
+                      {feature}
                     </li>
                   ))}
                 </ul>
-
-                {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => document.querySelector('#planes').scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full bg-gradient-to-r ${service.color} text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all`}
-                >
-                  Ver Planes y Precios
-                </motion.button>
+                <Link to="/contacto" className="btn btn-pricing">
+                  Comenzar ahora
+                </Link>
               </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Additional Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            Servicios Complementarios
-          </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {additionalServices.map((service, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition-all cursor-pointer"
-              >
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mx-auto mb-3">
-                  {service.icon}
-                </div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">
-                  {service.name}
-                </h4>
-                <p className="text-xs text-gray-600">
-                  {service.description}
-                </p>
-              </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Value Proposition */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-purple-600 to-pink-500 rounded-3xl p-8 md:p-12 text-white"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-3xl font-bold mb-4">
-                ¿Por qué elegirnos?
-              </h3>
-              <p className="text-white/90 mb-6">
-                Somos la agencia digital que entiende las necesidades de las empresas chilenas. 
-                Combinamos creatividad, tecnología y estrategia para impulsar tu crecimiento.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3">
-                  <Target className="w-6 h-6" />
-                  <span>Resultados Medibles</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="w-6 h-6" />
-                  <span>Equipo Certificado</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <TrendingUp className="w-6 h-6" />
-                  <span>ROI Garantizado</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MessageCircle className="w-6 h-6" />
-                  <span>Soporte 24/7</span>
-                </div>
-              </div>
+      {/* Process Section */}
+      <section className="process-section">
+        <div className="container">
+                      <h2>Simple, transparente, <span className="highlight-yellow">efectivo</span></h2>
+          
+          <div className="process-grid">
+            <div className="process-step">
+              <div className="step-number">1</div>
+              <h3>Escuchamos</h3>
+              <p>Entendemos tu negocio, tus desafíos, tus metas. Sin chamullo.</p>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8">
-                <div className="text-5xl font-bold mb-2">+250%</div>
-                <div className="text-xl">Aumento promedio en ventas</div>
-                <div className="text-sm opacity-80 mt-2">en los primeros 6 meses</div>
-              </div>
+            <div className="process-step">
+              <div className="step-number">2</div>
+              <h3>Estrategia</h3>
+              <p>Diseñamos un plan de acción claro y medible. Cada paso con propósito.</p>
+            </div>
+            <div className="process-step">
+              <div className="step-number">3</div>
+              <h3>Ejecutamos</h3>
+              <p>Implementamos con agilidad y profesionalismo. Resultados desde el día 1.</p>
+            </div>
+            <div className="process-step">
+              <div className="step-number">4</div>
+              <h3>Optimizamos</h3>
+              <p>Medimos, aprendemos y mejoramos constantemente. Siempre hacia arriba.</p>
             </div>
           </div>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section purple-bg">
+        <div className="container">
+          <div className="cta-content">
+            <h2>¿No sabes qué servicio necesitas?</h2>
+            <p>Conversemos 5 minutos y te orientamos sin compromiso</p>
+            <a
+              href="https://wa.me/56932252978"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-white"
+            >
+              <MessageCircle size={20} />
+              Escribir por WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
-export default Services;
+export default Servicios;

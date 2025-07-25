@@ -9,6 +9,7 @@ const Header = () => {
   const navItems = [
     { name: 'Inicio', path: '/' },
     { name: 'Servicios', path: '/servicios' },
+    { name: 'Demos', path: '/demos' },
     { name: 'Proyectos', path: '/proyectos' },
     { name: 'Nosotros', path: '/nosotros' },
     { name: 'Contacto', path: '/contacto' }
@@ -34,7 +35,7 @@ const Header = () => {
               </Link>
             ))}
             <a
-              href="https://wa.me/56942740261"
+              href="https://wa.me/56932252978"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button"
@@ -67,7 +68,7 @@ const Header = () => {
               </Link>
             ))}
             <a
-              href="https://wa.me/56942740261"
+              href="https://wa.me/56932252978"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button-mobile"
