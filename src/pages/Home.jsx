@@ -184,9 +184,10 @@ const Home = () => {
               marcas que <span className="highlight">venden</span>
             </h1>
             <p className="hero-subtitle">
-              Hacemos marketing que funciona. Punto. Sin chamullo, sin relleno, sin fórmulas genéricas. 
-              Estrategia real + creatividad que vende = tu negocio creciendo. 
-              <strong> ¿Cachái? Démosle.</strong>
+              Transformamos tu marca en esa que todos quieren seguir. 
+              Estrategia real + creatividad que enamora = tu negocio despegando. 
+              Simple, directo, efectivo. 
+              <strong> ¿Listo? Démosle.</strong>
             </p>
             <div className="hero-buttons">
               <Link to="/servicios" className="btn btn-primary">
@@ -212,7 +213,7 @@ const Home = () => {
         <div className="container">
           <div className="section-header">
             <h2>Lo que tu negocio necesita para <span className="highlight-yellow">vender más</span></h2>
-            <p>Estrategia clara. Ejecución rápida. Resultados medibles. Así de simple.</p>
+            <p>Estrategia clara. Ejecución rápida. Resultados que se notan.</p>
           </div>
 
           <div className="services-grid">
@@ -221,7 +222,7 @@ const Home = () => {
                 <Users size={40} />
               </div>
               <h3>Community & Contenido</h3>
-              <p>Redes que venden, no que entretienen. Creamos contenido que genera clientes, no solo likes. Tu comunidad va a amar tu marca Y comprar tus productos. <strong>Le damos vida a tus redes.</strong></p>
+              <p>Creamos comunidades que aman tu marca Y compran tus productos. Contenido que conecta, promociones que convierten, mensajes que llegan directo al corazón (y al bolsillo) de tu audiencia. <strong>Tu marca, más viva que nunca.</strong></p>
               <ul className="service-features">
                 <li><Check size={16} /> Gestión de redes sociales</li>
                 <li><Check size={16} /> Promociones creativas</li>
@@ -234,7 +235,7 @@ const Home = () => {
                 <Globe size={40} />
               </div>
               <h3>Páginas Web que Venden</h3>
-              <p>Webs que cargan rápido y venden más rápido. ¿Bonitas? Sí. ¿Funcionales? También. En 3 días la tienes lista. Sin vueltas. <strong>A darle.</strong></p>
+              <p>Webs rápidas que convierten aún más rápido. Diseño que enamora, funcionalidad que vende. En 3 días la tienes lista para conquistar internet. <strong>Sin vueltas, pura acción.</strong></p>
               <ul className="service-features">
                 <li><Check size={16} /> Diseño responsivo</li>
                 <li><Check size={16} /> Optimizado para ventas</li>
@@ -247,7 +248,7 @@ const Home = () => {
                 <Sparkles size={40} />
               </div>
               <h3>Estrategia & Creatividad</h3>
-              <p>Creatividad que vende. No hacemos arte, hacemos negocios crecer. Tu marca va a verse pro, sonar cercana y vender como nunca.</p>
+              <p>Creatividad con propósito. Tu marca va a verse increíble, sonar auténtica y vender como siempre soñaste. Ideas frescas que generan resultados reales.</p>
               <ul className="service-features">
                 <li><Check size={16} /> Identidad de marca</li>
                 <li><Check size={16} /> Redacción publicitaria</li>
@@ -262,8 +263,8 @@ const Home = () => {
       <section className="pricing-section">
         <div className="container">
           <div className="section-header">
-            <h2>Precios simples, <span className="highlight-yellow">sin sorpresas</span></h2>
-            <p>Elige el servicio que necesitas. Sin letra chica, sin costos ocultos.</p>
+            <h2>Precios transparentes, <span className="highlight-yellow">resultados extraordinarios</span></h2>
+            <p>Elige lo que necesitas. Sin letra chica, sin sorpresas.</p>
           </div>
 
           {/* Service Tabs */}
@@ -321,8 +322,8 @@ const Home = () => {
       <section className="results">
         <div className="container">
           <div className="section-header">
-            <h2>Acá no vendemos humo. <span className="highlight">Vendemos resultados</span></h2>
-            <p>Métricas reales. Ventas reales. Crecimiento real. Los números hablan solos.</p>
+            <h2>Resultados que hablan por sí solos</h2>
+            <p>Métricas reales de negocios reales. Así de simple.</p>
           </div>
 
           <div className="stats-grid">
@@ -349,8 +350,8 @@ const Home = () => {
           </div>
 
           <div className="conversion-section">
-            <h3>Convierte cada <span className="highlight">interacción</span> en una oportunidad</h3>
-            <p>Nuestro ecosistema digital integrado trabaja 24/7. Mientras duermes, tu negocio sigue vendiendo. Automatización inteligente + estrategia humana = resultados extraordinarios.</p>
+            <h3>Convierte cada <span className="highlight">interacción</span> en una venta</h3>
+            <p>Nuestro ecosistema digital trabaja 24/7 para ti. Automatización inteligente + toque humano = más ventas mientras duermes. La fórmula perfecta existe.</p>
             
             <div className="conversion-bars">
               <div className="conversion-item">
@@ -389,8 +390,8 @@ const Home = () => {
       <section className="cta-section">
         <div className="container">
           <div className="cta-content">
-            <h2>¿Tu marca no vende como debería?</h2>
-            <p>Tenemos la solución. Sin verso. <strong>Démosle.</strong></p>
+            <h2>¿Tu marca está lista para el siguiente nivel?</h2>
+            <p>Tenemos todo lo que necesitas para despegar. <strong>Démosle juntos.</strong></p>
             <div className="cta-buttons">
               <Link to="/contacto" className="btn btn-primary">
                 Empezar ahora
@@ -403,7 +404,7 @@ const Home = () => {
                 className="btn btn-white"
               >
                 <MessageCircle size={20} />
-                WhatsApp directo
+                Hablemos por WhatsApp
               </a>
             </div>
           </div>

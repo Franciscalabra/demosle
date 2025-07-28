@@ -17,10 +17,10 @@ const Nosotros = () => {
         <div className="container">
           <div className="about-grid">
             <div className="about-content">
-              <h2>Marketing digital sin verso</h2>
+              <h2>Marketing digital con propósito</h2>
               <p className="lead">
                 Nacimos cansados de ver negocios buenos fracasar por mal marketing. De escuchar 
-                promesas vacías de "influencers" improvisados. De presupuestos inflados sin resultados claros.
+                promesas vacías. De presupuestos inflados sin resultados claros.
               </p>
               <p>
                 <strong>Démosle</strong> es nuestra respuesta: una agencia boutique que piensa en grande 
@@ -28,8 +28,8 @@ const Nosotros = () => {
                 de un equipo apasionado.
               </p>
               <p>
-                No somos gurúes ni vendemos la pomada. Somos profesionales digitales obsesionados 
-                con hacer crecer tu negocio.
+                Somos profesionales digitales obsesionados con hacer crecer tu negocio. 
+                Trabajamos codo a codo contigo para lograr resultados reales.
               </p>
             </div>
             <div className="about-image">
@@ -50,19 +50,19 @@ const Nosotros = () => {
             <div className="value-card">
               <Target size={40} />
               <h3>Estrategia primero</h3>
-              <p>Cada acción tiene un porqué. Analizamos, planificamos y después ejecutamos. Nada al lulo.</p>
+              <p>Cada acción tiene un porqué. Analizamos, planificamos y después ejecutamos. Todo con propósito claro.</p>
             </div>
             
             <div className="value-card">
               <Zap size={40} />
               <h3>Velocidad de startup</h3>
-              <p>Mientras otros hacen reuniones, nosotros ya estamos implementando. Resultados en días, no meses.</p>
+              <p>Mientras otros planifican, nosotros ya estamos implementando. Resultados en días, no meses.</p>
             </div>
             
             <div className="value-card">
               <Palette size={40} />
               <h3>Creatividad con datos</h3>
-              <p>Creatividad bacán respaldada por datos duros. Cada decisión con métricas reales.</p>
+              <p>Ideas increíbles respaldadas por métricas reales. Cada decisión creativa con fundamento.</p>
             </div>
             
             <div className="value-card">
@@ -80,7 +80,7 @@ const Nosotros = () => {
           <div className="team-content">
             <h2>El equipo que hace <span className="highlight-yellow">la diferencia</span></h2>
             <p className="team-intro">
-              Formamos un equipo que la lleva. Profesionales que piensan, creativos que venden, estrategas que ejecutan.
+              Un equipo talentoso y apasionado. Profesionales que piensan, creativos que venden, estrategas que ejecutan.
             </p>
             
             <div className="founder-quote">
@@ -92,7 +92,7 @@ const Nosotros = () => {
                 pero te lleven al siguiente nivel. En medir todo, optimizar siempre, y celebrar cada venta como 
                 si fuera la primera.
                 <br/><br/>
-                Formé un equipo que comparte esta visión: profesionales que cachán, creativos que venden, 
+                Formé un equipo que comparte esta visión: profesionales talentosos, creativos que conectan, 
                 estrategas que ejecutan."
               </blockquote>
               <cite>— Fran, CEO y Fundadora</cite>
@@ -121,8 +121,8 @@ const Nosotros = () => {
           
           <div className="philosophy-grid">
             <div className="philosophy-item">
-              <h3>Sin ego, con resultados</h3>
-              <p>No nos importa tener la razón, nos importa que funcione. Probamos, medimos, ajustamos.</p>
+              <h3>Resultados sobre ego</h3>
+              <p>Nos importa que funcione y que tu negocio crezca. Probamos, medimos, ajustamos y celebramos juntos.</p>
             </div>
             
             <div className="philosophy-item">
@@ -147,7 +147,7 @@ const Nosotros = () => {
       <section className="cta-section yellow-bg">
         <div className="container">
           <div className="cta-content">
-            <h2>¿Te tinca nuestra forma de pensar?</h2>
+            <h2>¿Te gusta nuestra forma de pensar?</h2>
             <p>Trabajemos juntos. Hagamos crecer tu negocio con ideas que funcionan.</p>
             <div className="cta-buttons">
               <a

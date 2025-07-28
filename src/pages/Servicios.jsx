@@ -215,8 +215,8 @@ const Servicios = () => {
       <section className="pricing-section">
         <div className="container">
           <div className="section-header">
-            <h2>Precios simples, <span className="highlight-yellow">sin sorpresas</span></h2>
-            <p>Elige el servicio que necesitas. Sin letra chica, sin costos ocultos.</p>
+            <h2>Precios transparentes, <span className="highlight-yellow">resultados extraordinarios</span></h2>
+            <p>Elige lo que necesitas. Sin letra chica, sin sorpresas.</p>
           </div>
 
           <div className="pricing-grid">
@@ -248,13 +248,13 @@ const Servicios = () => {
       {/* Process Section */}
       <section className="process-section">
         <div className="container">
-                      <h2>Simple, transparente, <span className="highlight-yellow">efectivo</span></h2>
+          <h2>Simple, transparente, <span className="highlight-yellow">efectivo</span></h2>
           
           <div className="process-grid">
             <div className="process-step">
               <div className="step-number">1</div>
               <h3>Escuchamos</h3>
-              <p>Entendemos tu negocio, tus desafíos, tus metas. Sin chamuyo.</p>
+              <p>Entendemos tu negocio, tus desafíos, tus metas. Conversación real y honesta.</p>
             </div>
             <div className="process-step">
               <div className="step-number">2</div>

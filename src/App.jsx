@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+// PASO 1: Cambiar la importación a HashRouter
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 // Componentes
 import Header from './components/Header';
@@ -25,30 +26,19 @@ import DemoBoutique from './pages/demos/DemoBoutique';
 import './styles/main.css';
 
 function ScrollToTop() {
-  const location = useLocation();
+  const { pathname } = useLocation();
   
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]);
+  }, [pathname]);
   
   return null;
 }
 
 function App() {
-  useEffect(() => {
-    // Verificar si hay una ruta en la URL
-    const path = window.location.pathname;
-    if (path !== '/' && path !== '') {
-      // Usar setTimeout para asegurar que React Router esté listo
-      setTimeout(() => {
-        window.history.pushState({}, '', path);
-        window.dispatchEvent(new PopStateEvent('popstate'));
-      }, 100);
-    }
-  }, []);
-
+  // PASO 2: El componente <Router> ahora es un HashRouter gracias a la importación
   return (
-    <Router>
+    <Router> 
       <ScrollToTop />
       <div className="App">
         <Header />

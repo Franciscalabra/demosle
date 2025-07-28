@@ -56,7 +56,7 @@ const Contacto = () => {
       });
       setFormErrors({});
     } else {
-      setSubmitMessage({ type: 'error', text: '¡Chuta! Algo salió mal. Intenta de nuevo o escríbenos al WhatsApp 🤔' });
+      setSubmitMessage({ type: 'error', text: '¡Ups! Algo salió mal. Intenta de nuevo o escríbenos al WhatsApp 🤔' });
     }
     
     setIsSubmitting(false);
@@ -68,7 +68,7 @@ const Contacto = () => {
       <section className="page-hero">
         <div className="container">
           <h1>Hablemos de hacer <span className="highlight">crecer tu negocio</span></h1>
-          <p>Sin compromiso, sin chamullo. Solo una conversación honesta sobre tu potencial digital.</p>
+          <p>Sin compromiso, sin rollos. Solo una conversación honesta sobre tu potencial digital.</p>
         </div>
       </section>
 
@@ -234,13 +234,13 @@ const Contacto = () => {
               </div>
 
               <div className="info-card purple-card">
-                <h3>Por qué elegirnos 🚀</h3>
+                <h3>Por qué trabajar juntos 🚀</h3>
                 <ul className="benefits-list">
                   <li><strong>Sin contratos amarrados</strong> - Mes a mes, sigues si ves resultados</li>
-                  <li><strong>Reuniones que valen la pena</strong> - Al grano, sin perder tiempo</li>
+                  <li><strong>Reuniones productivas</strong> - Al grano, con propósito claro</li>
                   <li><strong>Reportes que entiendes</strong> - Métricas claras, sin palabrería técnica</li>
                   <li><strong>Equipo senior</strong> - Trabajas con profesionales, no con practicantes</li>
-                  <li><strong>Resultados garantizados</strong> - Si no funciona, cambiamos de estrategia hasta que funcione</li>
+                  <li><strong>Mejora continua</strong> - Si algo no funciona, lo cambiamos hasta que funcione</li>
                 </ul>
               </div>
             </div>
@@ -267,9 +267,9 @@ const Contacto = () => {
             </div>
             
             <div className="faq-item">
-              <h3>¿Qué los diferencia de otros CM?</h3>
-              <p>Experiencia real + certificaciones + obsesión por vender. No somos los que 
-              aprendieron en YouTube. Somos los que enseñan en YouTube 💪</p>
+              <h3>¿Qué los hace diferentes?</h3>
+              <p>Experiencia real + certificaciones + obsesión por generar resultados. 
+              Combinamos profesionalismo con agilidad para hacer crecer tu negocio 💪</p>
             </div>
             
             <div className="faq-item">
